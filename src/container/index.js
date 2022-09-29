@@ -3,7 +3,7 @@ class Container {
         this.products = []
     }
 
-    save(producto){
+    save(product){
         try {
             product.id = this.products.length + 1
             this.products.push(product)
@@ -20,7 +20,7 @@ class Container {
     getById(id){
         try {
             const result = this.getAll().find(obj => obj.id == id) 
-            return result === undefined ? ({error: 'producto no encontrado'}) : result
+            return result === undefined ? ({error: 'product not founded'}) : result
         } catch(error){
             return error
         }
@@ -39,7 +39,7 @@ class Container {
     deleteById(id){
         try {
             this.products = this.getAll().filter(obj => obj.id !== id)
-            return {msg: `Producto con el id ${id} eliminado`}
+            return {msg: `Product ${id} deleted`}
         } catch(error){
             return error
         } 
